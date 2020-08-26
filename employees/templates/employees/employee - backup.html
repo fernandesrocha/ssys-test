@@ -1,0 +1,41 @@
+{% extends "employees/base.html" %}
+
+{% block title %}
+    SSYS Employee iD# {{ employee.id }}
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h2 style="text-align:center"; id="top">SSYS - Employee's details</h2>
+    </div>
+
+        <table style="width:90%;margin-left:auto;margin-right:auto;margin-top: 30px;margin-bottom: 50px">
+            <tr>
+                <th>Employee Name:</th>
+                <th>E-mail adress:</th>
+                <th>Department:</th>
+            </tr>
+            <tr>
+                <th>{{ employee.name }}</th>
+                <th>{{ employee.email }}</th>
+                <th>{{ employee.department }}</th>
+            </tr>
+            <tr>
+                <th>Department Coworkers:</th>
+            </tr>
+            <tr>
+            {% for budies in employee.staff %}
+                <tr>{{ budies }}</tr>
+            {% empty %}
+                <th>no coworkers found</th>
+            {% endfor %}
+            </tr>
+        </table>
+        <p>
+            <a href="add_employee">Add employee CARALHO!!</a>
+        </p>
+    <p style="text-align:center">
+        <a href="{% url 'index' %}">Back to full listing..</a>
+    </p>
+
+{% endblock %}

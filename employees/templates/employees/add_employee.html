@@ -1,0 +1,23 @@
+{% extends "employees/base.html" %}
+
+{% block title %}
+    SSYS Add Employee
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h2 style="text-align:center"; id="top">SSYS - Enter employee data:</h2>
+    </div>
+    
+    <div class="topnav">
+        <a href="{% url 'index' %}">Back to full listing..</a>
+    </div>
+
+    <div style="width:90%;margin-left:auto;margin-right:auto;margin-top: 30px;margin-bottom: 50px">
+        <form method="POST" class="post-form">
+        {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    </div>
+{% endblock %}

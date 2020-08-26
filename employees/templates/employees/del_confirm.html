@@ -1,0 +1,35 @@
+{% extends "employees/base.html" %}
+
+{% block title %}
+    SSYS Employee iD# {{ employee.id }} - Delete confirmation
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h2 style="text-align:center"; id="top">SSYS - Confirm Delete?</h2>
+    </div>
+
+    <div class="topnav">
+        <a href="{% url 'index' %}">Back to full listing..</a>        
+    </div>
+
+    <table>
+        <tr>
+            <th>Employee Name:</th>
+            <th>E-mail adress:</th>
+            <th>Department:</th>
+        </tr>
+        <tr>
+            <th>{{ employee.name }}</th>
+            <th>{{ employee.email }}</th>
+            <th>{{ employee.department }}</th>
+        </tr>
+    </table>
+    <div style="margin-left:100px;margin-right:auto;margin-top: 30px;margin-bottom: 50px">
+        <form action="" method="POST">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ employee.name }}"?</p>
+            <input type="submit" name="confirm" value="Confirm" />
+            <input type="submit" value="Cancel" />
+        </form>
+    </div>
+{% endblock %}

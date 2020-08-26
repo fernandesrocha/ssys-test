@@ -1,0 +1,38 @@
+{% extends "employees/base.html" %}
+
+{% block title %}
+    SSYS - Employees
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h2 style="text-align:center"; id="top"}>-=- SSYS Employee Mnager -=-</h2>
+    </div>
+
+    <div class="topnav">
+		<a href="/admin">Log in to ADMIN panel</a>
+        <a href="{% url 'add_employee' %}">Add employee</a>
+    </div>
+
+    <table>
+	    <tr>
+	        <th>Name</th>
+	        <th>e-mail</th>
+	        <th>Department</th>
+	    </tr>
+	    {% for employee in employees %}
+		<tr>
+			<th><a href="{% url 'employee' employee.id %}">{{ employee.name }}</a></th>
+			<th>{{ employee.email }}</th>
+			<th>{{ employee.department }}</th>
+	    </tr>
+	    {% endfor %}
+	</table>
+
+	<footer>
+		<p>
+			<a href="#top">..Back to top</a>
+		</p>
+	</footer>
+
+{% endblock %}

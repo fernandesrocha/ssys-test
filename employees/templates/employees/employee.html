@@ -1,0 +1,29 @@
+{% extends "employees/base.html" %}
+
+{% block title %}
+    SSYS Employee iD# {{ employee.id }}
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h2 style="text-align:center"; id="top">SSYS - Employee's details</h2>
+    </div>
+
+    <div class="topnav">
+        <a href="{% url 'delete' employee.id %}">Delete employee</a>        
+        <a href="{% url 'index' %}">Back to full listing..</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>Employee Name:</th>
+            <th>E-mail adress:</th>
+            <th>Department:</th>
+        </tr>
+        <tr>
+            <th>{{ employee.name }}</th>
+            <th>{{ employee.email }}</th>
+            <th>{{ employee.department }}</th>
+        </tr>
+    </table>
+{% endblock %}

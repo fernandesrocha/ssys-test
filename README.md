@@ -1,0 +1,2 @@
+ssys-test
+-=-=-= SSYS - Django Coding Test =-=-=- SSYS team is growing every month and now we need to have some application to manage employees information, such as name, e-mail and department. As any application written at SSYS, it must have an API to allow integrations.
